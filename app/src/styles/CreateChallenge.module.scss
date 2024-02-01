@@ -1,0 +1,23 @@
+.textInput {
+    width: 100%;
+    margin-bottom: 16px;
+    padding: 4px;
+}
+
+.topicForms {
+    display: flex;
+    flex-direction: column;
+}
+
+.wordForms {
+    display: flex;
+    flex-direction: column;
+
+    padding-left: 16px;
+}
+
+.submitButton {
+    padding: 8px;
+    border: 0;
+    cursor: pointer;
+}
