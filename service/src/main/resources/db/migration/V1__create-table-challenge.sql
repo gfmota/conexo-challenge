@@ -1,0 +1,23 @@
+CREATE TABLE challenge (
+    id TEXT PRIMARY KEY UNIQUE NOT NULL,
+    topic1 TEXT NOT NULL,
+    word11 TEXT NOT NULL,
+    word12 TEXT NOT NULL,
+    word13 TEXT NOT NULL,
+    word14 TEXT NOT NULL,
+    topic2 TEXT NOT NULL,
+    word21 TEXT NOT NULL,
+    word22 TEXT NOT NULL,
+    word23 TEXT NOT NULL,
+    word24 TEXT NOT NULL,
+    topic3 TEXT NOT NULL,
+    word31 TEXT NOT NULL,
+    word32 TEXT NOT NULL,
+    word33 TEXT NOT NULL,
+    word34 TEXT NOT NULL,
+    topic4 TEXT NOT NULL,
+    word41 TEXT NOT NULL,
+    word42 TEXT NOT NULL,
+    word43 TEXT NOT NULL,
+    word44 TEXT NOT NULL
+);
