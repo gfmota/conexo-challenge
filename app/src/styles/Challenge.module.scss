@@ -1,0 +1,69 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin: 16px;
+  width: 100%;
+  padding: 0 8px;
+  font-size: .8em;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  background-color: gray;
+  padding: 16px 0;
+  cursor: pointer;
+  transition: 0.3s;
+  color: black;
+}
+
+.selected {
+  background-color: #16adff;
+}
+
+.solvedCard0 {
+  background-color: #3e3bff;
+  cursor: default;
+}
+
+.solvedCard1 {
+  background-color: #ff6416;
+  cursor: default;
+}
+
+.solvedCard2 {
+  background-color: #15ea2e;
+  cursor: default;
+}
+
+.solvedCard3 {
+  background-color: #d4f000;
+  cursor: default;
+}
+
+.solvedTopic0 {
+  color: #3e3bff;
+}
+
+.solvedTopic1 {
+  color: #ff6416;
+}
+
+.solvedTopic2 {
+  color: #15ea2e;
+}
+
+.solvedTopic3 {
+  color: #d4f000;
+}
+
+.hide {
+  display: none;
+}

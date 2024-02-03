@@ -1,12 +1,14 @@
 package com.conexochallenge.conexochallengeservice.models;
 
-import com.conexochallenge.conexochallengeservice.models.dtos.ChallengeDTO;
+import com.conexochallenge.conexochallengeservice.models.dtos.ChallengeRequestDTO;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Table(name = "challenge")
 @Entity
 @Data
+@NoArgsConstructor
 public class Challenge {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -52,26 +54,26 @@ public class Challenge {
 
     private String word44;
 
-    public Challenge(ChallengeDTO challengeDTO) {
-        this.topic1 = challengeDTO.topic1();
-        this.word11 = challengeDTO.word11();
-        this.word12 = challengeDTO.word12();
-        this.word13 = challengeDTO.word13();
-        this.word14 = challengeDTO.word14();
-        this.topic2 = challengeDTO.topic2();
-        this.word21 = challengeDTO.word21();
-        this.word22 = challengeDTO.word22();
-        this.word23 = challengeDTO.word23();
-        this.word24 = challengeDTO.word24();
-        this.topic3 = challengeDTO.topic3();
-        this.word31 = challengeDTO.word31();
-        this.word32 = challengeDTO.word32();
-        this.word33 = challengeDTO.word33();
-        this.word34 = challengeDTO.word34();
-        this.topic4 = challengeDTO.topic4();
-        this.word41 = challengeDTO.word41();
-        this.word42 = challengeDTO.word42();
-        this.word43 = challengeDTO.word43();
-        this.word44 = challengeDTO.word44();
+    public Challenge(ChallengeRequestDTO challengeRequestDTO) {
+        this.topic1 = challengeRequestDTO.topic1();
+        this.word11 = challengeRequestDTO.word11();
+        this.word12 = challengeRequestDTO.word12();
+        this.word13 = challengeRequestDTO.word13();
+        this.word14 = challengeRequestDTO.word14();
+        this.topic2 = challengeRequestDTO.topic2();
+        this.word21 = challengeRequestDTO.word21();
+        this.word22 = challengeRequestDTO.word22();
+        this.word23 = challengeRequestDTO.word23();
+        this.word24 = challengeRequestDTO.word24();
+        this.topic3 = challengeRequestDTO.topic3();
+        this.word31 = challengeRequestDTO.word31();
+        this.word32 = challengeRequestDTO.word32();
+        this.word33 = challengeRequestDTO.word33();
+        this.word34 = challengeRequestDTO.word34();
+        this.topic4 = challengeRequestDTO.topic4();
+        this.word41 = challengeRequestDTO.word41();
+        this.word42 = challengeRequestDTO.word42();
+        this.word43 = challengeRequestDTO.word43();
+        this.word44 = challengeRequestDTO.word44();
     }
 }
