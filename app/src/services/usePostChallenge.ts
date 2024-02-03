@@ -2,7 +2,7 @@ import { UseMutationOptions, useMutation } from '@tanstack/react-query';
 
 const postChallenge = async (challengeBody: any) => {
   const body = JSON.stringify(challengeBody);
-  const response = await fetch('http://localhost:8080/challenge', {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_CONEXO_CHALLENGE_SERVICE_PATH}/challenge`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

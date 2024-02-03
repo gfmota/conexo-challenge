@@ -65,6 +65,7 @@ app/yarn-error.log*
 
 # local env files
 app/.env*.local
+app/.env
 
 # vercel
 app/.vercel

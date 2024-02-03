@@ -4,7 +4,7 @@ import { ChallengeResponseDTO } from './types';
 const getChallenge = async (challengeId?: string) => {
   if (!challengeId) throw new Error('challengeId is not valid');
   const response = await fetch(
-    `http://localhost:8080/challenge/${challengeId}`,
+    `${process.env.NEXT_PUBLIC_CONEXO_CHALLENGE_SERVICE_PATH}/challenge/${challengeId}`,
   );
   return await response.json();
 };
