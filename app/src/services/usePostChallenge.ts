@@ -14,8 +14,12 @@ const postChallenge = async (challengeBody: any) => {
   return await response.json();
 };
 
+interface PostChallengeResponse {
+  id: string
+}
+
 const usePostChallenge = (
-  options?: UseMutationOptions<unknown, Error, any, unknown>,
+  options?: UseMutationOptions<PostChallengeResponse, Error, any, unknown>,
 ) =>
   useMutation({
     mutationFn: postChallenge,

@@ -20,4 +20,14 @@
   padding: 8px;
   border: 0;
   cursor: pointer;
+  margin-top: 8px;
+  width: 100%;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 1.2em;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
 }
