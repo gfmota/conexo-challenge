@@ -9,7 +9,7 @@ export interface ChallengeState {
     solved: boolean;
   }[];
   selected: string[];
-  tries: number;
+  triesMessage: string;
 }
 
 enum ActionsType {
@@ -34,7 +34,7 @@ const ChallengeContext = React.createContext<{
   state: {
     topics: [],
     selected: [],
-    tries: 0,
+    triesMessage: "",
   },
   dispatch: () => null,
 });
@@ -60,18 +60,18 @@ export const challengeReducer = (
       return {
         ...state,
         selected: [],
-        tries: state.tries + 1,
+        triesMessage: `${state.triesMessage}X`,
       };
     case ActionsType.SOLVE_CHALLENGE:
       if (!action.payload?.topic) throw new Error('topic should not be null');
+      const topicIndex = state.topics.findIndex(topic => topic.name === action.payload?.topic);
+      const newTopics = state.topics;
+      newTopics[topicIndex].solved = true;
       return {
         ...state,
-        topics: state.topics.map(topic =>
-          topic.name === action.payload?.topic
-            ? { ...topic, solved: true }
-            : topic,
-        ),
-        tries: state.tries + 1,
+        topics: newTopics,
+        selected: [],
+        triesMessage: `${state.triesMessage}${topicIndex}`,
       };
     default:
       return state;
@@ -89,7 +89,7 @@ export const ChallengeProvider = ({
   const [state, dispatch] = useReducer(challengeReducer, {
     topics: challengeData.topics.map(topic => ({ ...topic, solved: false })),
     selected: [],
-    tries: 0,
+    triesMessage: "",
   });
 
   return (
@@ -136,5 +136,6 @@ export const useChallengeContext = () => {
     ...state,
     select,
     diselect,
+    solved: !state.topics.find(({ solved }) => !solved)
   };
 };

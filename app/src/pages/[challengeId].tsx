@@ -1,23 +1,22 @@
 import Challenge from '@/containers/Challenge';
 import { ChallengeProvider } from '@/containers/Challenge/context';
+import { useLoading } from '@/containers/Loading';
 import useGetChallenge from '@/services/useGetChallenge';
 import { useRouter } from 'next/router';
 
 const ChallengePage = () => {
   const { query } = useRouter();
-  const { data, isLoading, isError } = useGetChallenge(
+  const { setIsLoading } = useLoading()
+  const { data, isLoading, isSuccess, isError } = useGetChallenge(
     query?.challengeId as string | undefined,
   );
-
-  if (isLoading) {
-    return <div>Loading</div>;
-  }
+  setIsLoading(isLoading);
 
   if (isError) {
     return <div>Challenge not found</div>;
   }
 
-  return (
+  return isSuccess && (
     <ChallengeProvider challengeData={data}>
       <Challenge />
     </ChallengeProvider>

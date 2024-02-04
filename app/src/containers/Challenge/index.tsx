@@ -1,10 +1,10 @@
 import { useMemo } from 'react';
 import styles from '../../styles/Challenge.module.scss';
 import { useChallengeContext } from './context';
-import { shuffleIndexes } from './utils';
+import { getEmojiMessage, shuffleIndexes } from './utils';
 
 const Challenge = () => {
-  const { topics, selected, select, diselect, tries } = useChallengeContext();
+  const { topics, selected, select, diselect, triesMessage , solved} = useChallengeContext();
 
   const shuffledIndexes = useMemo(() => shuffleIndexes(16), []);
 
@@ -22,7 +22,7 @@ const Challenge = () => {
 
   return (
     <div className={styles.container}>
-      Tentativas: {tries}
+      Tentativas: {triesMessage.length}
       <div className={styles.cardContainer}>
         {shuffledIndexes.map(ind => {
           const { word, solved, topicInd } = words[ind];
@@ -49,6 +49,7 @@ const Challenge = () => {
           {name}
         </div>
       ))}
+      {solved && getEmojiMessage(triesMessage)}
     </div>
   );
 };

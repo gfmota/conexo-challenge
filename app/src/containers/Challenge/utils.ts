@@ -14,3 +14,10 @@ export const shuffleIndexes = (length: number) => {
 
   return indexes;
 };
+
+export const getEmojiMessage = (message: string) =>  message
+    .replaceAll("X", "❌")
+    .replaceAll("0", "💙")
+    .replaceAll("1", "🧡")
+    .replaceAll("2", "💚")
+    .replaceAll("3", "💛");
