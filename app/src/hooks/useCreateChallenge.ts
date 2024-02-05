@@ -16,8 +16,8 @@ const useCreateChallenge = () => {
     onSettled: () => setIsLoading(false)
   });
 
-  const onSubmit = handleSubmit((data: any) => {
-    console.log(errors)
+  const onSubmit = handleSubmit((data: any, e) => {
+    e?.preventDefault();
     mutate(data);
     setIsLoading(true);
   });
