@@ -4,6 +4,7 @@ import com.conexochallenge.conexochallengeservice.models.Challenge;
 import com.conexochallenge.conexochallengeservice.models.dtos.ChallengeRequestDTO;
 import com.conexochallenge.conexochallengeservice.repositories.ChallengeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -17,7 +18,6 @@ public class ChallengeService {
         return challenge.getId();
     }
 
-    public Challenge getChallenge(String id) {
-        return challengeRepository.findById(id).orElseThrow();
-    }
+    @Cacheable("challenge")
+    public Challenge getChallenge(String id) { return challengeRepository.findById(id).orElseThrow(); }
 }
